@@ -17,8 +17,7 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 	<aop:aspectj-autoproxy />
 
 	<!-- JARDINIER -->
-	<bean id="jardinier" class="org.yannart.springgarden.Jardinier"
-		p:nom="Dupond" />
+	<bean id="jardinier" class="org.yannart.springgarden.Jardinier" p:nom="Dupond" />
 
 	<!-- JARDIN -->
 	<bean id="jardin" class="org.yannart.springgarden.Jardin" init-method="jardiner">
