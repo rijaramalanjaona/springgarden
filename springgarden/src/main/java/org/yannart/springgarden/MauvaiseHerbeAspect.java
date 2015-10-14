@@ -17,37 +17,37 @@ import org.springframework.stereotype.Component;
 @Aspect
 @Component
 public class MauvaiseHerbeAspect {
-
-    /**
-     * Mauvaise herbe qui vole les nutriments.
-     */
-    @Resource
-    IPlante mauvaiseHerbe;
-
-    /**
-     * Advice associe a l'execution d'une methode avec le prefixe "nourri"
-     * d'un bean avec le suffixe "Malade".
-     * 
-     * @param joinPoint
-     *            reference au point de jonction de l'aspect.
-     * @throws IllegalAccessException
-     * @throws InvocationTargetException
-     */
-    @Around("execution(* nourri*(..)) && bean(*Malade)")
-    public void mauvaiseHerbeAdvice(final ProceedingJoinPoint joinPoint)
-	    throws IllegalAccessException, InvocationTargetException {
-
-	// On sait que l'objet destin de l'appel est une Plante
-	IPlante plante = (IPlante) joinPoint.getTarget();
-
-	// On sait que le JoinPoint est une methode
-	Method method = ((MethodSignature) joinPoint.getSignature())
-		.getMethod();
-
-	System.out.println("    * mauvaise herbe sent la methode "
-		+ method.getName() + " sur " + plante.getNomPlante());
-
-	// Ce qu'allais recevoir la plante est recu par la mauvaise herbe
-	method.invoke(mauvaiseHerbe, joinPoint.getArgs());
-    }
+	
+	/**
+	 * Mauvaise herbe qui vole les nutriments.
+	 */
+	@Resource
+	IPlante mauvaiseHerbe;
+	
+	/**
+	 * Advice associe a l'execution d'une methode avec le prefixe "nourri" d'un
+	 * bean avec le suffixe "Malade".
+	 * 
+	 * @param joinPoint
+	 *            reference au point de jonction de l'aspect.
+	 * @throws IllegalAccessException
+	 * @throws InvocationTargetException
+	 */
+	@Around("execution(* nourri*(..)) && bean(*Malade)")
+	public void mauvaiseHerbeAdvice(final ProceedingJoinPoint joinPoint)
+			throws IllegalAccessException, InvocationTargetException {
+		
+		// On sait que l'objet destin de l'appel est une Plante
+		IPlante plante = (IPlante) joinPoint.getTarget();
+		
+		// On sait que le JoinPoint est une methode
+		Method method = ((MethodSignature) joinPoint.getSignature())
+				.getMethod();
+		
+		System.out.println("    * mauvaise herbe sent la methode "
+				+ method.getName() + " sur " + plante.getNomPlante());
+		
+		// Ce qu'allais recevoir la plante est recu par la mauvaise herbe
+		method.invoke(mauvaiseHerbe, joinPoint.getArgs());
+	}
 }

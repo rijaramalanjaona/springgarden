@@ -21,8 +21,7 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 		p:nom="Dupond" />
 
 	<!-- JARDIN -->
-	<bean id="jardin" class="org.yannart.springgarden.Jardin"
-		init-method="jardiner">
+	<bean id="jardin" class="org.yannart.springgarden.Jardin" init-method="jardiner">
 		<property name="jardinier" ref="jardinier" />
 		<property name="parcelles">
 			<list>
@@ -36,8 +35,7 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 	</bean>
 
 	<!-- POTAGER -->
-	<bean id="potager" class="org.yannart.springgarden.Parcelle"
-		init-method="melanger">
+	<bean id="potager" class="org.yannart.springgarden.Parcelle" init-method="melanger">
 		<property name="nom" value="Potager" />
 		<property name="plantes">
 			<list>
@@ -51,8 +49,7 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 	</bean>
 
 	<!-- VERGER -->
-	<bean id="verger" class="org.yannart.springgarden.Parcelle"
-		init-method="melanger">
+	<bean id="verger" class="org.yannart.springgarden.Parcelle" init-method="melanger">
 		<property name="nom" value="Verger" />
 		<property name="plantes">
 			<list>
@@ -69,9 +66,8 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 	<bean id="choux" parent="plante" scope="prototype" p:nomPlante="Choux" />
 	<bean id="pomme" parent="plante" scope="prototype" p:nomPlante="Pomme" />
 	<bean id="poire" parent="plante" scope="prototype" p:nomPlante="Poire" />
-	<bean id="poireMalade" parent="plante" scope="prototype"
-		p:nomPlante="PoireMalade" />
-	<bean id="patateMalade" parent="plante" scope="prototype"
-		p:nomPlante="PatateMalade" />
+	<bean id="poireMalade" parent="plante" scope="prototype" p:nomPlante="PoireMalade" />
+	<bean id="patateMalade" parent="plante" scope="prototype" p:nomPlante="PatateMalade" />
+	
 </beans>
 
